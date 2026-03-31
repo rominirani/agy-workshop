@@ -2,23 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Travel Planner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen Travel Planner - Start</title>
 </head>
 <body>
-    <h1>Travel Planner</h1>
-    <p>{{ quote }}</p>
-
-    <form action="/" method="POST">
-        <input type="text" name="destination" placeholder="Destination">
-        <input type="date" name="date">
-        <textarea name="note" placeholder="Notes"></textarea>
-        <button type="submit">Add</button>
-    </form>
-
-    <ul>
-        {% for trip in trips %}
-            <li>{{ trip.destination }} - {{ trip.date }} ({{ trip.note }})</li>
-        {% endfor %}
-    </ul>
+    <h1>Welcome to your Zen Travel Planner!</h1>
+    <p>Ask Antigravity to 'vibe-code' this into a stunning, glassmorphic UI.</p>
 </body>
 </html>
