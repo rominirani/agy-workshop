@@ -59,68 +59,78 @@ You can complete this workshop using either the **Visual IDE** or the **Interact
 | **01** | **Vibe-Coding** | **Prototyping** | "Create a stunning, glassmorphic Zen Travel Planner using Flask. The UI should have smooth animations and a premium color palette." |
 
 ### 01: Vibe-Coding (Rapid UI)
+
 1. **Reproduce**: Run `python3 app.py` and visit `http://127.0.0.1:5000`. You'll see a completely empty, unstyled page.
 2. **Prompt**: Paste the "Unified Prompt" above into Antigravity or Gemini CLI.
 3. **Verify**: Refresh the browser to see a fully reactive, high-end travel dashboard generated from scratch.
 
+### 02: Documentation (Knowledge)
+
 | **02** | **Documentation** | **Knowledge** | "@scheduler.py analyze this async logic and generate Google-style docstrings and a comprehensive README.md." |
 
-### 02: Documentation (Knowledge)
 1. **Reproduce**: Open `scheduler.py`. The logic is complex and lacks any comments or documentation.
 2. **Prompt**: Use the prompt above to generate clear, structured documentation.
 3. **Verify**: Check the file for newly added docstrings and look for the new `README.md` in the `02-documentation` folder.
 
+### 03: Feature-Building (Expansion)
+
 | **03** | **Feature-Building** | **Expansion** | "@app.py implement a 'Low Stock Alert' system (< 5 units) with a new dashboard page and visual warnings." |
 
-### 03: Feature-Building (Expansion)
 1. **Reproduce**: Run `python3 app.py`. Notice there's no way to see which items are low on stock.
 2. **Prompt**: Ask the agent to add the alert system and a new dashboard route.
 3. **Verify**: Visit `/dashboard` to see the new low-stock warnings in action.
 
+### 04: Refactoring (Cleanup)
+
 | **04** | **Refactoring** | **Cleanup** | "@processor.py refactor this messy calculation logic into clean, modular functions. Remove the global state variables." |
 
-### 04: Refactoring (Cleanup)
 1. **Reproduce**: Read `processor.py`. It's a "spaghetti" monolithic script with global variables that are hard to test.
 2. **Prompt**: Ask the agent to modularize the logic.
 3. **Verify**: Run the refactored code and ensure calculations remain identical, but the code is now testable and clean.
 
+### 05: Testing (Quality)
+
 | **05** | **Testing** | **Quality** | "Write a complete pytest suite for this Finance API, covering edge cases like divisions by zero and negative currency values." |
 
-### 05: Testing (Quality)
 1. **Reproduce**: Run `pytest`. It will fail because there are no tests or they are incomplete.
 2. **Prompt**: Use the agent to generate a robust test suite for the `app.py` logic.
 3. **Verify**: Run `pytest` again and see all tests pass, including the complex edge cases.
 | **06** | **Migration** | **Modernization** | "Migrate this legacy Flask app to Python 3.12 standards. Replace old formatting with f-strings and add comprehensive type hints." |
 
 ### 06: Migration (Modernization)
+
 1. **Reproduce**: Run `python3 legacy_script.py`. Observe the old `%` string formatting and lack of type safety.
 2. **Prompt**: Ask the agent to migrate the logic into a modern, type-hinted Flask API.
 3. **Verify**: Run the new Flask app and confirm the output matches the legacy script but with a modern architecture.
 
+### 07: Bug-Fixing (Diagnostics)
+
 | **07** | **Bug-Fixing** | **Diagnostics** | "Find and fix the 3 bugs: the backend KeyError, the React state string conversion, and the unclickable UI overlay." |
 
-### 07: Bug-Fixing (Diagnostics)
 1. **Reproduce**: Start the backend and frontend. Try to view "Analytics" (KeyError). Notice the "Dashboard" numbers are strings (e.g., "1005" instead of 15). Try to click buttons under the invisible overlay.
 2. **Prompt**: Ask the agent to "Find and fix all bugs in the 07-bug-fixing directory."
 3. **Verify**: Click through the UI and ensure all 500 errors are gone and the overlay is removed.
 
+### 08: Security (Hardening)
+
 | **08** | **Security** | **Hardening** | "@app.py identify and patch the SQL Injection and XSS vulnerabilities. Use parameterized queries and proper output escaping." |
 
-### 08: Security (Hardening)
 1. **Reproduce**: In the search box, type `' OR '1'='1` (SQLi) or `<script>alert('XSS')</script>`.
 2. **Prompt**: Use the agent to audit `app.py` for vulnerabilities and apply security best practices.
 3. **Verify**: Attempt the same attacks; they should now be safely handled/escaped.
 
+### 09: Performance (Optimization)
+
 | **09** | **Performance** | **Optimization** | "@data_proc.py optimize the sales reporting logic. Replace the O(n^2) nested sorting loop with an efficient algorithm." |
 
-### 09: Performance (Optimization)
 1. **Reproduce**: Run the analytics report and notice the significant lag (3+ seconds) caused by the inefficient sorting loop in `data_proc.py`.
 2. **Prompt**: Ask the agent to optimize the data processing logic for better time complexity.
 3. **Verify**: Run the report again; it should be near-instantaneous.
 
+### 10: Deployment (Ops)
+
 | **10** | **Deployment** | **Ops** | "Generate a multi-stage Dockerfile and a GitHub Actions workflow that runs tests and builds the image on every push." |
 
-### 10: Deployment (Ops)
 1. **Reproduce**: Inspect the existing `Dockerfile`. It's massive and unoptimized.
 2. **Prompt**: Ask the agent to create a slim, multi-stage Docker build and a CI/CD pipeline.
 3. **Verify**: Build the image locally (`docker build . -t workshop-app`) and check the image size reduction.
