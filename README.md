@@ -95,9 +95,10 @@ You can complete this workshop using either the **Visual IDE** or the **Interact
 1. **Reproduce**: Run `pytest`. It will fail because there are no tests or they are incomplete.
 2. **Prompt**: Use the agent to generate a robust test suite for the `app.py` logic.
 3. **Verify**: Run `pytest` again and see all tests pass, including the complex edge cases.
-| **06** | **Migration** | **Modernization** | "Migrate this legacy Flask app to Python 3.12 standards. Replace old formatting with f-strings and add comprehensive type hints." |
 
 ### 06: Migration (Modernization)
+
+| **06** | **Migration** | **Modernization** | "Migrate this legacy Flask app to Python 3.12 standards. Replace old formatting with f-strings and add comprehensive type hints." |
 
 1. **Reproduce**: Run `python3 legacy_script.py`. Observe the old `%` string formatting and lack of type safety.
 2. **Prompt**: Ask the agent to migrate the logic into a modern, type-hinted Flask API.
