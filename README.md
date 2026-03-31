@@ -5,7 +5,7 @@ Welcome to the Antigravity workshop! This repository contains 10 activities, all
 > [!NOTE]
 > For a deep dive into the philosophy, benefits, and target audience of this curriculum, read our **[Workshop Overview](file:///Users/romin/agy-projects/agy-workshop/WORKSHOP_OVERVIEW.md)**.
 
-You will explore 10 real-world software engineering tasks across two powerful platforms.
+You will explore 10 real-world software engineering tasks across two powerful platforms (Antigravity and Gemini CLI).
 
 ---
 
@@ -30,7 +30,7 @@ Before starting any activity, ensure you have Python 3.8+ installed. Follow thes
 
 ## 🤖 Choose Your Agent Path
 
-You can complete this workshop using either the **Visual IDE** or the **Interactive Terminal**.
+You can complete this workshop using either the **Antigravity** or the **Gemini CLI**.
 
 ### Path A: The Visual Experience (Antigravity IDE)
 
