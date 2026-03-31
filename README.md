@@ -106,11 +106,11 @@ You can complete this workshop using either the **Visual IDE** or the **Interact
 
 ### 07: Bug-Fixing (Diagnostics)
 
-| **07** | **Bug-Fixing** | **Diagnostics** | "Find and fix the 3 bugs: the backend KeyError, the React state string conversion, and the unclickable UI overlay." |
+| **07** | **Bug-Fixing** | **Diagnostics** | "Find and fix the 3 bugs in the Inventory API: the ZeroDivision error, the shared order state, and the discount math error." |
 
-1. **Reproduce**: Start the backend and frontend. Try to view "Analytics" (KeyError). Notice the "Dashboard" numbers are strings (e.g., "1005" instead of 15). Try to click buttons under the invisible overlay.
-2. **Prompt**: Ask the agent to "Find and fix all bugs in the 07-bug-fixing directory."
-3. **Verify**: Click through the UI and ensure all 500 errors are gone and the overlay is removed.
+1. **Reproduce**: Run `python3 app.py`. Submit an empty order (ZeroDivision). Submit two orders in a row (Order Bleeding). Add a loyalty discount and notice the incorrect total ($0.10 instead of 10%).
+2. **Prompt**: Ask the agent to "Find and fix all logic bugs in the 07-bug-fixing/app.py file."
+3. **Verify**: Use curl or Postman to submit orders and ensure the calculations are accurate and orders don't persist across requests.
 
 ### 08: Security (Hardening)
 

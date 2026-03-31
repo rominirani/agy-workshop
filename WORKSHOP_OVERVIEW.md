@@ -48,7 +48,7 @@ By the end of these 10 projects, you will:
 4. **Refactoring**: Improving code health and readability.
 5. **Testing**: Ensuring reliability through automation.
 6. **Migration**: Modernizing legacy patterns.
-7. **Bug-Fixing**: Troubleshooting full-stack (Next.js + Flask) issues.
+7. **Bug-Fixing**: Troubleshooting the Inventory & Discount API logic.
 8. **Security**: Hardening apps against modern exploits.
 9. **Performance**: Diagnosing and fixing algorithmic bottlenecks.
 10. **Deployment**: Shipping your code to the world.
