@@ -1,3 +1,5 @@
+![Workshop Cover](assets/workshop_cover.png)
+
 # Agentic Developer Workshop
 
 Welcome to the Antigravity workshop! This repository contains 10 activities, all built using **Python and Flask**, designed to showcase the power of agentic development.

@@ -1,3 +1,5 @@
+![Workshop Cover](assets/workshop_cover.png)
+
 # 🚀 Agentic Developer Workshop
 
 ## 🌟 Overview
