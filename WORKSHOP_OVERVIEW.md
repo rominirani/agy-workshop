@@ -1,4 +1,4 @@
-# 🚀 Agentic Developer Workshop: Python & AI Agents 101
+# 🚀 Agentic Developer Workshop
 
 ## 🌟 Overview
 
