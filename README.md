@@ -1,4 +1,4 @@
-# Antigravity Workshop: Agentic Development 101
+# Agentic Developer Workshop: Python & AI Agents 101
 
 Welcome to the Antigravity workshop! This repository contains 10 activities, all built using **Python and Flask**, designed to showcase the power of agentic development.
 

@@ -1,4 +1,4 @@
-# 🚀 Antigravity & Gemini CLI: The Agentic Developer Workshop
+# 🚀 Agentic Developer Workshop: Python & AI Agents 101
 
 ## 🌟 Overview
 
