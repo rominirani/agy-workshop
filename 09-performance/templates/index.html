@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sales Performance Dashboard</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; padding: 2rem; }
+        .report-card { border: 1px solid #ddd; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .btn-run { padding: 10px 20px; background: #059669; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Sales Analytics (High Dataset)</h1>
+    <p>Generate a report of the top 5 sales days. Note: This may be slow!</p>
+    
+    <div class="report-card">
+        <button onclick="runReport()" class="btn-run" id="run-btn">Generate Report</button>
+        <div id="results" style="margin-top: 1rem;"></div>
+    </div>
+
+    <script>
+        async function runReport() {
+            const btn = document.getElementById('run-btn');
+            const results = document.getElementById('results');
+            btn.disabled = true;
+            btn.innerText = "Processing...";
+            results.innerHTML = "<em>Calculating top sales days...</em>";
+            
+            const start = performance.now();
+            const res = await fetch('/api/report');
+            const json = await res.json();
+            const end = performance.now();
+            
+            results.innerHTML = `<h3>Top 5 Days:</h3><ul>${json.results.map(i => `<li>Day ${i[0]}: $${i[1]}</li>`).join('')}</ul><p>Backend took: ${json.time_ms}ms</p>`;
+            btn.disabled = false;
+            btn.innerText = "Generate Report";
+        }
+    </script>
+</body>
+</html>

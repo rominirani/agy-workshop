@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Legacy Flask App</title>
+</head>
+<body>
+    <h1>User Processing Results</h1>
+    <ul>
+        {% for user in results %}
+        <li>{{ user.message }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
