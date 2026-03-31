@@ -21,18 +21,37 @@ def index():
 def search():
     username = request.args.get("username", "")
     
-    # FIXED (Security): Parameterized Query to prevent SQL Injection
-    query = "SELECT username, secret_info FROM users WHERE username = ?"
+    # BUG (Security): SQL Injection Vulnerability
+    # The user input is concatenated directly into the query string.
+    # Try: admin' --
+    query = f"SELECT username, secret_info FROM users WHERE username = '{username}'"
     
     try:
-        # Pass (username,) as a tuple for parameterized search
-        cursor = db_conn.execute(query, (username,))
+        cursor = db_conn.execute(query)
         results = cursor.fetchall()
     except Exception as e:
         return f"Database Error: {str(e)}", 400
 
-    # FIXED (Security): Use a dedicated HTML template file which automatically escapes inputs
-    return render_template("results.html", username=username, results=results)
+    # BUG (Security): Cross-Site Scripting (XSS) Vulnerability
+    # The user input is rendered directly into the HTML without escaping.
+    # Try: <script>alert('Hacked!')</script>
+    template = """
+    <html>
+        <body>
+            <h1>Search Results for: {{ username }}</h1>
+            <p>We found {{ count }} user(s):</p>
+            <ul>
+                {% for user in results %}
+                    <li>User: {{ user[0] }} | Data: {{ user[1] }}</li>
+                {% endfor %}
+            </ul>
+            <a href="/">Back to Search</a>
+        </body>
+    </html>
+    """
+    
+    # Using render_template_string for demonstration of "Bad" practice
+    return render_template_string(template, username=username, results=results, count=len(results))
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
