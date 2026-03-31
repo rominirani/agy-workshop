@@ -22,9 +22,8 @@ export default function Dashboard() {
       })
       .catch(err => {
         console.error(err);
-        // BUG (JS-Side): The error state is set to true, but the loading state 
-        // is never reset, so the UI hangs in "Loading..." forever on error.
         setError(true);
+        setLoading(false); // FIXED: Reset loading state so error message shows.
       });
   }, []);
 
@@ -33,9 +32,8 @@ export default function Dashboard() {
   };
 
   const handleReset = () => {
-    // BUG (JS-Side): Accidentally resetting to a string instead of a number.
-    // This will cause handleIncrement to perform string concatenation ("01" instead of 1).
-    setCount("0");
+    // FIXED: Reset to number 0 to avoid string concatenation bugs.
+    setCount(0);
   };
 
   if (loading && !error) {
@@ -85,8 +83,7 @@ export default function Dashboard() {
         )}
       </section>
       
-      {/* Visual Overlay causing the UI Bug */}
-      <div className="ui-overlay"></div>
+      {/* FIXED: Removed the blocking ui-overlay div */}
     </main>
   );
 }

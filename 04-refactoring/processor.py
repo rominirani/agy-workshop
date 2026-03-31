@@ -1,43 +1,59 @@
 import math
+from typing import List, Optional, Any
 
-data = []
+class Calculator:
+    """A modular calculator to process and log mathematical operations."""
 
-def process_calc(type, a, b, c=None):
-    global data
-    res = 0
-    if type == "ADD":
+    def __init__(self):
+        self.history: List[str] = []
+
+    def _log_operation(self, op_type: str, args: tuple, result: Any) -> None:
+        """Internal helper to log operation details."""
+        entry = f"Type: {op_type}, Args: {args}, Result: {result}"
+        self.history.append(entry)
+        print(f"PROCESSED: {entry}")
+
+    def add(self, a: float, b: float) -> float:
         res = a + b
-    elif type == "SUB":
-        res = a - b
-    elif type == "MUL":
+        self._log_operation("ADD", (a, b), res)
+        return res
+
+    def multiply(self, a: float, b: float) -> float:
         res = a * b
-    elif type == "DIV":
-        if b != 0:
-            res = a / b
-        else:
+        self._log_operation("MUL", (a, b), res)
+        return res
+
+    def divide(self, a: float, b: float) -> Optional[float]:
+        if b == 0:
             print("ERROR: DIVISION BY ZERO")
+            self._log_operation("DIV", (a, b), "ERROR")
             return None
-    elif type == "POW":
+        res = a / b
+        self._log_operation("DIV", (a, b), res)
+        return res
+
+    def power(self, a: float, b: float) -> float:
         res = math.pow(a, b)
-    elif type == "SQRT":
-        if a >= 0:
-            res = math.sqrt(a)
-        else:
+        self._log_operation("POW", (a, b), res)
+        return res
+
+    def square_root(self, a: float) -> Optional[float]:
+        if a < 0:
             print("ERROR: NEGATIVE SQRT")
+            self._log_operation("SQRT", (a,), "ERROR")
             return None
-    
-    entry = "Type: " + str(type) + ", Args: (" + str(a) + ", " + str(b) + ", " + str(c) + "), Result: " + str(res)
-    data.append(entry)
-    print("PROCESSED: " + entry)
-    return res
+        res = math.sqrt(a)
+        self._log_operation("SQRT", (a,), res)
+        return res
 
-def print_all():
-    global data
-    print("--- ALL LOGS ---")
-    for i in range(len(data)):
-        print(str(i) + ": " + data[i])
+    def print_history(self):
+        print("\n--- OPERATION HISTORY ---")
+        for i, entry in enumerate(self.history):
+            print(f"{i}: {entry}")
 
-process_calc("ADD", 10, 20)
-process_calc("MUL", 5, 4)
-process_calc("DIV", 10, 0)
-print_all()
+if __name__ == "__main__":
+    calc = Calculator()
+    calc.add(10, 20)
+    calc.multiply(5, 4)
+    calc.divide(10, 0)
+    calc.print_history()

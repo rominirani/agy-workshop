@@ -20,10 +20,8 @@ def index():
 
 @app.route("/api/analytics")
 def get_analytics():
-    # BUG (Server-Side): Directly accessing 'range' without checking if it exists.
-    # If the query parameter is missing, it will raise a KeyError (which Flask turns into 400).
-    # Attendees should fix this to use request.args.get('range', 'all_time').
-    range_type = request.args['range']
+    # FIXED: Use .get() to avoid KeyError if 'range' is missing.
+    range_type = request.args.get('range', 'all_time')
     
     return jsonify({
         "status": "success",
